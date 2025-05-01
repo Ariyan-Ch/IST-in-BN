@@ -6,3 +6,6 @@
 /build/
 
 sequential
+.vscode
+gmon.out
+profile.txt
