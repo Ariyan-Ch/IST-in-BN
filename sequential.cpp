@@ -14,7 +14,7 @@ string perm_to_str(const Perm &v) {
     ostringstream oss;
     oss << v[0];
     for (int i = 1; i < (int)v.size(); i++)
-        oss << ',' << v[i];
+        oss << '-' << v[i];
     return oss.str();
 }
 
@@ -49,8 +49,8 @@ Perm find_position(const Perm &v,
     }
     // 1.2: else if v[n-2] in {t, n-1}
     if (v[n-2] == t || v[n-2] == n-1) {
-        // swap at the rightmost out-of-place
-        return swap_symbol(v, v[rpos], inv);
+        int j = rpos + 1;                 // r(v), 1-based
+        return swap_symbol(v, j, inv);    // swap the *value* j
     }
     // 1.3: else swap(v, t)
     return swap_symbol(v, t, inv);
